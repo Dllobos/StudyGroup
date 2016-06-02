@@ -30,7 +30,7 @@ import java.net.URL;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
 
-    //Usuario usuario;
+    Usuario usuario;
 
     //variables a usar a lo largo de la actividad
     Button bIrRegistro,bIngresar;
@@ -42,7 +42,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-        ((Usuario)this.getApplication()).getVerificadores();
+
         //asignar cada variable a su parte del layout
         bIrRegistro=(Button)findViewById(R.id.bIrRegistro);
         bIngresar=(Button)findViewById(R.id.bIngresar);
@@ -135,6 +135,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Toast.makeText(getBaseContext(),"Usuario o contraseña incorrectos",Toast.LENGTH_LONG).show();
             }
             else{
+                ((Usuario)LoginActivity.this.getApplication()).setUsuarioId(s);
                 Intent principal = new Intent(LoginActivity.this,MainActivity.class);
                 startActivity(principal);
             }
