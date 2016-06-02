@@ -65,8 +65,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                             editTextApellidos.getText().toString(),
                             editTextMail.getText().toString(),
                             editTextPass.getText().toString());
-                    //if(usuario.getVerificadores().equals("true")){
-                        //}
                 break;
         }
     }
@@ -147,7 +145,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
         @Override
         protected void onPostExecute(String s) {
-            //usuario.setVerificadores(s);
             if(s.equals("true")){
             Intent principal = new Intent(RegisterActivity.this, LoginActivity.class);
             startActivity(principal);}
