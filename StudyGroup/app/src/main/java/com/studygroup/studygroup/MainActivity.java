@@ -17,6 +17,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         FragmentBuscarGrupo.OnFragmentInteractionListener,//implemento los fragments
@@ -113,7 +114,7 @@ public class MainActivity extends AppCompatActivity
         else if (id == R.id.ramos) {
             //fragment = new FragmentRamos();
             //fragmentos= true;
-            Intent principal = new Intent(this, CarrerasActivity.class);
+            Intent principal = new Intent(MainActivity.this, CarrerasActivity.class);
             startActivity(principal);
         }
         else if (id == R.id.buscar_usuarios) {

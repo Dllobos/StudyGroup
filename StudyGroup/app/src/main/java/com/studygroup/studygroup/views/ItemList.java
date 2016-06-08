@@ -1,8 +1,7 @@
 package com.studygroup.studygroup.views;
 
-import android.app.Fragment;
+
 import android.app.FragmentTransaction;
-import android.app.ListFragment;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +14,8 @@ import com.studygroup.studygroup.R;
 import com.studygroup.studygroup.controllers.HttpGet;
 import com.studygroup.studygroup.utilities.JsonHandler;
 import com.studygroup.studygroup.utilities.SystemUtilities;
+import android.app.Fragment;
+import android.app.ListFragment;
 
 /**
  * @author: Jefferson Morales De la Parra
@@ -49,7 +50,8 @@ public class ItemList extends ListFragment {
         Bundle arguments = new Bundle();
         arguments.putString("item", item);
         itemDetail.setArguments(arguments);
-        FragmentTransaction transaction = getFragmentManager().beginTransaction();
+        FragmentTransaction transaction;
+        transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, itemDetail);
         transaction.addToBackStack(null);
         transaction.commit();

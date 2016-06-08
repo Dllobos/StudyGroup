@@ -112,10 +112,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                         devuelve = idJSON;
                         //Log.e()
 
-                    } else if (resultadoJSON.equals("false")) {//respuesta negativa
+                    } else {//respuesta negativa
                         devuelve = "-1";
                     }
-                }
+                }else{devuelve="-1";}
             } catch (MalformedURLException e) {//error de URL
                 e.printStackTrace();
             } catch (IOException e) {

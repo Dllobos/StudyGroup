@@ -3,16 +3,20 @@ package com.studygroup.studygroup;
 import android.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.MenuItem;
+import android.app.Fragment;
 import com.studygroup.studygroup.views.ItemList;
+import com.studygroup.studygroup.R;
+import com.studygroup.studygroup.views.NewItem;
 
 public class CarrerasActivity extends AppCompatActivity {
 
-    FragmentTransaction transaction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carreras);
+        FragmentTransaction transaction;
         transaction = getFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, new ItemList());
         transaction.commit();
@@ -29,4 +33,10 @@ public class CarrerasActivity extends AppCompatActivity {
             getFragmentManager().popBackStack();
         }
     }// onBackPressed()
+
+    /**@Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        return super.onOptionsItemSelected(item);
+    }*/
+
 }

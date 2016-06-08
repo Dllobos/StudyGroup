@@ -21,7 +21,7 @@ public class JsonHandler {
             String actor;
             for (int i = 0; i < ja.length(); i++) {
                 JSONObject row = ja.getJSONObject(i);
-                actor = " " + row.getString("ramoId")+ " " + row.getString("nombreRamo")+ " "+row.getString("carreraId")+" "+row.getString("nombreCarrera");
+                actor = " " + row.getString("ramoId")+ " " + row.getString("nombreRamo")+ " "+row.getString("carreraId")+" "+row.getString("nombreCarrera")+" ";
                 result[i] = actor;
             }
             return result;
