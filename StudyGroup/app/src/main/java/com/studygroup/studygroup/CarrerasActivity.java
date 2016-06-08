@@ -1,10 +1,10 @@
 package com.studygroup.studygroup;
 
-import android.app.FragmentTransaction;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MenuItem;
-import android.app.Fragment;
 import com.studygroup.studygroup.views.ItemList;
 import com.studygroup.studygroup.R;
 import com.studygroup.studygroup.views.NewItem;
@@ -17,7 +17,7 @@ public class CarrerasActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_carreras);
         FragmentTransaction transaction;
-        transaction = getFragmentManager().beginTransaction();
+        transaction = getSupportFragmentManager().beginTransaction();
         transaction.replace(R.id.fragment_container, new ItemList());
         transaction.commit();
     }// onCreate(Bundle savedInstanceState)

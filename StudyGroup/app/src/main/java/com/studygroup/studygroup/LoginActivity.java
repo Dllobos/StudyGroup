@@ -115,7 +115,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     } else {//respuesta negativa
                         devuelve = "-1";
                     }
-                }else{devuelve="-1";}
+                }else{devuelve="-2";}
             } catch (MalformedURLException e) {//error de URL
                 e.printStackTrace();
             } catch (IOException e) {
@@ -133,6 +133,9 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         protected void onPostExecute(String s) {//cuando se ejecuta el Post
             if(s.equals("-1")){
                 Toast.makeText(getBaseContext(),"Usuario o contraseña incorrectos",Toast.LENGTH_LONG).show();
+            }
+            else if(s.equals("-2")){
+                Toast.makeText(getBaseContext(),"no se pudo conectar al servidor", Toast.LENGTH_SHORT).show();
             }
             else{
                 ((Usuario)LoginActivity.this.getApplication()).setUsuarioId(s);

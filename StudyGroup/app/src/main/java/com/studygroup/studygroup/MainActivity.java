@@ -112,10 +112,10 @@ public class MainActivity extends AppCompatActivity
             //startActivity(principal);
         }
         else if (id == R.id.ramos) {
-            //fragment = new FragmentRamos();
-            //fragmentos= true;
-            Intent principal = new Intent(MainActivity.this, CarrerasActivity.class);
-            startActivity(principal);
+            fragment = new FragmentRamos();
+            fragmentos= true;
+            //Intent principal = new Intent(MainActivity.this, CarrerasActivity.class);
+            //startActivity(principal);
         }
         else if (id == R.id.buscar_usuarios) {
             fragment = new FragmentBuscarUsuarios();

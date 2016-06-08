@@ -1,7 +1,9 @@
 package com.studygroup.studygroup.views;
 
 
-import android.app.FragmentTransaction;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.ListFragment;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -14,8 +16,6 @@ import com.studygroup.studygroup.R;
 import com.studygroup.studygroup.controllers.HttpGet;
 import com.studygroup.studygroup.utilities.JsonHandler;
 import com.studygroup.studygroup.utilities.SystemUtilities;
-import android.app.Fragment;
-import android.app.ListFragment;
 
 /**
  * @author: Jefferson Morales De la Parra
