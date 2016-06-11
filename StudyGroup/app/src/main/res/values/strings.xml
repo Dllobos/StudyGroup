@@ -16,23 +16,23 @@
     <string name="crear_grupo">Crear Grupo</string>
     <string name="carrera">Carrera</string>
     <string name="ramos">Ramos</string>
-
     <string name="comunicaciones">Comunicaciones</string>
-
     <string name="buscar_usuarios">Buscar Usuarios</string>
     <string name="enviar">Enviar</string>
 
     <!--- otros-->
     <string name="title_activity_main">Study Group</string>
-
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
-
     <string name="action_settings">Acerca de</string>
-    <string name="opciones">Ociones</string>
+    <string name="opciones">Opciones</string>
     <string name="void_string"></string>
     <string name="new_item"></string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!--acerca de  -->
+    <string name="acerca_de">Autor de android : Daniel Lobos</string>
+
 </resources>

@@ -37,7 +37,7 @@ public class ItemDetail extends Fragment {
         ((TextView) getView().findViewById(R.id.item_detail)).setText(bundle.getString("item"));
         String variables = bundle.getString("item");
         String[] palabrasSeparadas= variables.split(" ");
-        String ramo= palabrasSeparadas[1];
+        String ramo= palabrasSeparadas[0];
         super.onViewStateRestored(savedInstanceState);
     }// onViewStateRestored(Bundle savedInstanceState)
 
