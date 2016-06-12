@@ -12,7 +12,11 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.studygroup.studygroup.Direcciones;
+import com.studygroup.studygroup.MainActivity;
 import com.studygroup.studygroup.R;
+import com.studygroup.studygroup.Usuario;
 import com.studygroup.studygroup.controllers.HttpGet;
 import com.studygroup.studygroup.utilities.JsonHandler;
 import com.studygroup.studygroup.utilities.SystemUtilities;
@@ -24,7 +28,8 @@ import com.studygroup.studygroup.utilities.SystemUtilities;
 public class ItemList extends ListFragment {
 
     private BroadcastReceiver br = null;
-    private final String URL_GET = "http://mongostudygroup-app4tbd.rhcloud.com/service/gestion_carreras/ramos";
+    private final String URL_GET = Direcciones.UrlConsultarRamos;
+
 
     /**
      * Constructor. Obligatorio para Fragmentos!

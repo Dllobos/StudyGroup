@@ -27,6 +27,8 @@ public class MainActivity extends AppCompatActivity
         FragmentBuscarUsuarios.OnFragmentInteractionListener,
         FragmentEnviar.OnFragmentInteractionListener{
 
+    Usuario usuario;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {//se ejecuta al crearse la actividad
         super.onCreate(savedInstanceState);
@@ -42,7 +44,7 @@ public class MainActivity extends AppCompatActivity
         //                .setAction("Action", null).show();
         //     }
         //  });
-
+        ((Usuario)MainActivity.this.getApplication()).getUsuarioId();
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

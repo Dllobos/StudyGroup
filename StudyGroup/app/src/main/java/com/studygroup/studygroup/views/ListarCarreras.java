@@ -15,6 +15,7 @@ import android.widget.ListView;
 
 import com.studygroup.studygroup.Direcciones;
 import com.studygroup.studygroup.R;
+import com.studygroup.studygroup.Usuario;
 import com.studygroup.studygroup.controllers.HttpGet;
 import com.studygroup.studygroup.utilities.JsonHandler;
 import com.studygroup.studygroup.utilities.SystemUtilities;
@@ -41,11 +42,20 @@ public class ListarCarreras extends ListFragment {
         super.onActivityCreated(savedInstanceState);
     }// onActivityCreated(Bundle savedInstanceState)
 
-    @Override
+    /*@Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-
+        String item = l.getItemAtPosition(position).toString();
+        Fragment itemDetail = new ItemDetail();
+        Bundle arguments = new Bundle();
+        arguments.putString("item", item);
+        itemDetail.setArguments(arguments);
+        FragmentTransaction transaction;
+        transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, itemDetail);
+        transaction.addToBackStack(null);
+        transaction.commit();
     }// onListItemClick(ListView l, View v, int position, long id)
-
+*/
     /**
      * Método que se ejecuta luego que el fragmento es creado o restaurado
      */

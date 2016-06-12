@@ -9,9 +9,11 @@ public class Direcciones {
     public static final String urlService=
             "http://mongostudygroup-app4tbd.rhcloud.com/service/";
     //URL login usuario
+    //post de usuario pide mínimo el mail y la pass
     public static final String UrlLoginUsuario=
             "http://mongostudygroup-app4tbd.rhcloud.com/service/login/";
     //URL Base url de usuarios
+    //post de usuario pide mínimo el nombre, apellido, mail, pass, json carrera, con carreraId y nombreCarrera
     public static String UrlUsuarios=
             "http://mongostudygroup-app4tbd.rhcloud.com/service/usuarios";
     //Para acceso a Carreras:
@@ -20,6 +22,13 @@ public class Direcciones {
     //GET: Consultar todas las carreras
     public static final String UrlConsultarCarreas=
             "http://mongostudygroup-app4tbd.rhcloud.com/service/gestion_carreras/";
+    //Consultar Ramos de carrera
+    public static final String UrlConsultarRamosCarrera=
+            "http://mongostudygroup-app4tbd.rhcloud.com/servicios/gestion_carreras/";//+id carrera
+    //consultar ramos de usuario
+    public static final String UrlConsultarRamosUsuario=
+            "http://mongostudygroup-app4tbd.rhcloud.com/service/gestion_carreras/usuario/";//+id usuario
+
     //GET: Consultar una carrera por ID
     public static final String UrlConsultarCarreasId=
             "http://mongostudygroup-app4tbd.rhcloud.com/service/gestion_carreras/";
@@ -35,9 +44,6 @@ public class Direcciones {
     //URL prueba temporal
     public static final String UrlUsuariosPrueba=
             "http://mongostudygroup-app4tbd.rhcloud.com/testing/usuarios";
-    //Agregar Ramo Por Id
-    public static final String UrlUsuarioRamosId=
-            "http://mongostudygroup-app4tbd.rhcloud.com/service/usuarios/"+"/ramos";
     //ramos del usuario
     public static final String UrlUsuarioRamos=
             "http://mongostudygroup-app4tbd.rhcloud.com/service/usuarios/ramos";
