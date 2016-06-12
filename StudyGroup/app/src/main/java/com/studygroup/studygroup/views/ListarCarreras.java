@@ -12,25 +12,26 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+
+import com.studygroup.studygroup.Direcciones;
 import com.studygroup.studygroup.R;
 import com.studygroup.studygroup.controllers.HttpGet;
 import com.studygroup.studygroup.utilities.JsonHandler;
 import com.studygroup.studygroup.utilities.SystemUtilities;
 
 /**
- * @author: Jefferson Morales De la Parra
- * Clase Fragmento (Lista) que se utiliza para mostrar una lista de items
+ * A simple {@link Fragment} subclass.
  */
-public class ItemList extends ListFragment {
+public class ListarCarreras extends ListFragment {
 
     private BroadcastReceiver br = null;
-    private final String URL_GET = "http://mongostudygroup-app4tbd.rhcloud.com/service/gestion_carreras/ramos";
+    private final String URL_GET = Direcciones.UrlConsultarRamos;
 
-    /**
-     * Constructor. Obligatorio para Fragmentos!
-     */
-    public ItemList() {
-    }// ItemList()
+
+    public ListarCarreras() {
+        // Required empty public constructor
+    }
+
 
     /**
      * Método que se llama una vez que se ha creado la actividad que contiene al fragmento
@@ -40,21 +41,9 @@ public class ItemList extends ListFragment {
         super.onActivityCreated(savedInstanceState);
     }// onActivityCreated(Bundle savedInstanceState)
 
-    /**
-     * Método que escucha las pulsaciones en los items de la lista
-     */
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        String item = l.getItemAtPosition(position).toString();
-        Fragment itemDetail = new ItemDetail();
-        Bundle arguments = new Bundle();
-        arguments.putString("item", item);
-        itemDetail.setArguments(arguments);
-        FragmentTransaction transaction;
-        transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragment_container, itemDetail);
-        transaction.addToBackStack(null);
-        transaction.commit();
+
     }// onListItemClick(ListView l, View v, int position, long id)
 
     /**
@@ -67,7 +56,7 @@ public class ItemList extends ListFragment {
             @Override
             public void onReceive(Context context, Intent intent) {
                 JsonHandler jh = new JsonHandler();
-                String[] actorsList = jh.getRamos(intent.getStringExtra("data"));
+                String[] actorsList = jh.getCarreras(intent.getStringExtra("data"));
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity()
                         , android.R.layout.simple_list_item_1, actorsList);
                 setListAdapter(adapter);
@@ -80,7 +69,7 @@ public class ItemList extends ListFragment {
                 new HttpGet(getActivity().getApplicationContext()).execute(URL_GET);
             }
         }
-            catch(Exception e){throw new RuntimeException(e);}
+        catch(Exception e){throw new RuntimeException(e);}
         super.onResume();
     }// onResume()
     /**
@@ -94,4 +83,4 @@ public class ItemList extends ListFragment {
         super.onPause();
     }// onPause()
 
-}// ItemList extends ListFragment
+}

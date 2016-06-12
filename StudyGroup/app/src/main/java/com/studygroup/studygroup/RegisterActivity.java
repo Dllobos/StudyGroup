@@ -28,8 +28,6 @@ import java.net.URL;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener{
 
-    //Usuario usuario;
-    // variables que se van a usar a lo largo de la actividad
     Button buttonCrear;
     EditText editTextNombre,editTextApellidos,editTextMail,editTextPass;
     PostUsuarioRest postUsuarioRest;
@@ -48,13 +46,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         buttonCrear=(Button)findViewById(R.id.buttonCrear);
 
         //variables que van a ser Clickeadas
-
         buttonCrear.setOnClickListener(this);
-
-        //usuario=((Usuario)getApplicationContext());
-
     }
-
     @Override
     public void onClick(View v){
         switch (v.getId()){
@@ -67,10 +60,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                             editTextPass.getText().toString());
                 break;
         }
-    }
-
-    public class sacarDelJson{
-
     }
     public class PostUsuarioRest extends AsyncTask<String,Void,String> {
         @Override
@@ -103,7 +92,6 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 writer.write(jsonParam.toString());
                 writer.flush();
                 writer.close();// se termina la escritura
-
                 //variable para respuesta del servidor
                 int respuesta = urlConn.getResponseCode();
                 StringBuilder result = new StringBuilder();
@@ -115,21 +103,14 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                     }
                     //Creo json para acceder a la respuesta
                     JSONObject respuestaJSON = new JSONObject(result.toString());
-                    //Accedemos al vector de resultados
-
                     String resultadoJSON = respuestaJSON.getString("usuarioAgregado");
 
                     if (resultadoJSON.equals("true")) {//respuesta positiva
-                        //devuelve = "Usuario agregado correctamente";
                         verificar="true";
-                        //MyAppApplication mApp = ((MyAppApplication)getApplicationContext());
-                        //usuario.setVerificadores(verificar);
-
                     } else if (resultadoJSON.equals("false")) {//respuesta negativa
-                        //devuelve = "El usuario ya existe";
                         verificar="false";
                     }
-                }
+                }else{verificar ="error";}
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (IOException e) {
@@ -148,18 +129,13 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             if(s.equals("true")){
             Intent principal = new Intent(RegisterActivity.this, LoginActivity.class);
             startActivity(principal);}
+            else if(s.equals("error")){
+                Toast.makeText(getBaseContext(),"error al acceder al servidor",Toast.LENGTH_LONG).show();
+            }
             else{
                 Toast.makeText(getBaseContext(),"No se pudo crear la cuenta",Toast.LENGTH_LONG).show();
             }
             //super.onPostExecute(s);
         }
-    }
-    private boolean esVacio(String variable){
-        return variable.trim().length()==0;
-    }
-
-    //creo la clase interfaz para sacar el dato del asyncTask
-    public interface AsyncResponse{
-        void processFinish(String output);
     }
 }

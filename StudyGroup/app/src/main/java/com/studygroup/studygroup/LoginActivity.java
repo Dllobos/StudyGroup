@@ -128,7 +128,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         @Override
         protected void onCancelled(String s) {
             super.onCancelled(s);
-        }//si se cancela el hilo
+        }//si se cancela el asynctask
         @Override
         protected void onPostExecute(String s) {//cuando se ejecuta el Post
             if(s.equals("-1")){
@@ -142,7 +142,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 Intent principal = new Intent(LoginActivity.this,MainActivity.class);
                 startActivity(principal);
             }
-            //super.onPostExecute(s);
         }
     }
 }//LogiAtivity
