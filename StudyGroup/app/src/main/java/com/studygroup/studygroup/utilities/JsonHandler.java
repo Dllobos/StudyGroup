@@ -47,47 +47,5 @@ public class JsonHandler {
         }
         return null;
     }
-    public String[] getPreferencias(String carreras) {
-        try {
-            JSONArray ja = new JSONArray(carreras);
-            String[] result = new String[ja.length()];
-            String ramos;
-            for (int i = 0; i < ja.length(); i++) {
-                JSONObject raw = ja.getJSONObject(i);
-                JSONArray ramo = raw.getJSONArray("ramo");
-                for (int j = 0; j < ramo.length(); i++) {
-                    JSONObject ramo1 = ramo.getJSONObject(j);
-                    ramos = "\t" + ramo1.getString("carreraId") + "\t" + ramo1.getString("nombreCarrera") +
-                            "\n\t" + ramo1.getString("ramoId") + "\t" + ramo1.getString("nombreRamo");
-                    result[i] = ramos;
-                }
-            }
-            return result;
-        } catch (JSONException e) {
-            Log.e("ERROR", this.getClass().toString() + " " + e.toString());
-        }
-        return null;
-    }
-    public String[] getPrevios(String carreras) {
-        try {
-            JSONArray ja = new JSONArray(carreras);
-            String[] result = new String[ja.length()];
-            String ramos;
-            for (int i = 0; i < ja.length(); i++) {
-                JSONObject raw = ja.getJSONObject(i);
-                JSONArray ramo = raw.getJSONArray("usuario");
-                for (int j = 0; j < ramo.length(); i++) {
-                    JSONObject ramo1 = ramo.getJSONObject(j);
-                    ramos = "\t" + ramo1.getString("usuarioId") + "\t" + ramo1.getString("mail") +
-                            "\n\t" + ramo1.getString("nombre") + "\t" + ramo1.getString("apellidos")+
-                            "\t"+ramo1.getString("numeroMovil");
-                    result[i] = ramos;
-                }
-            }
-            return result;
-        } catch (JSONException e) {
-            Log.e("ERROR", this.getClass().toString() + " " + e.toString());
-        }
-        return null;
-    }
+
 }// JsonHandler

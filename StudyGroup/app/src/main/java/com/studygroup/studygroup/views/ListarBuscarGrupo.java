@@ -12,8 +12,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.studygroup.studygroup.MainActivity;
-import com.studygroup.studygroup.MapsActivity;
 import com.studygroup.studygroup.R;
 import com.studygroup.studygroup.Usuario;
 import com.studygroup.studygroup.controllers.HttpGet;
@@ -45,8 +43,7 @@ public class ListarBuscarGrupo extends ListFragment {
      */
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        Intent principal = new Intent(getActivity().getApplicationContext(),MapsActivity.class);
-        startActivity(principal);
+
     }// onListItemClick(ListView l, View v, int position, long id)
 
     /**

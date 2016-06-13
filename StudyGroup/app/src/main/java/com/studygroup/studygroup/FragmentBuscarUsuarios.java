@@ -8,13 +8,9 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-
-import com.studygroup.studygroup.views.ItemList;
-import com.studygroup.studygroup.views.ListarCarreras;
 
 
 /**
@@ -36,12 +32,7 @@ public class FragmentBuscarUsuarios extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        /**View view = inflater.inflate(R.layout.fragment_fragment_ramos, container, false);
-        FragmentTransaction transaction;
-        transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragment_container, new ItemList());
-        transaction.commit();*/
-        return null;
+        return inflater.inflate(R.layout.fragment_fragment_buscar_usuarios, container, false);
     }
 
     // TODO: Rename method, update argument and hook method into UI event
