@@ -8,9 +8,13 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.studygroup.studygroup.views.ListarBuscarGrupo;
+import com.studygroup.studygroup.views.ListarCrearGrupo;
 
 
 /**
@@ -32,7 +36,12 @@ public class FragmentCrearGrupo extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_fragment_crear_grupo, container, false);
+        View view = inflater.inflate(R.layout.fragment_fragment_crear_grupo, container, false);
+        FragmentTransaction transaction;
+        transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, new ListarCrearGrupo());
+        transaction.commit();
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event

@@ -18,7 +18,7 @@
     <string name="ramos">Ramos</string>
     <string name="comunicaciones">Comunicaciones</string>
     <string name="buscar_usuarios">Buscar Usuarios</string>
-    <string name="enviar">Enviar</string>
+    <string name="enviar"></string>
 
     <!--- otros-->
     <string name="title_activity_main">Study Group</string>

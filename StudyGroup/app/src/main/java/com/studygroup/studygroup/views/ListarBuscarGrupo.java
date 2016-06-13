@@ -2,7 +2,6 @@ package com.studygroup.studygroup.views;
 
 
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.ListFragment;
 import android.content.BroadcastReceiver;
 import android.content.Context;
@@ -13,7 +12,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.studygroup.studygroup.Direcciones;
 import com.studygroup.studygroup.R;
 import com.studygroup.studygroup.Usuario;
 import com.studygroup.studygroup.controllers.HttpGet;
@@ -23,17 +21,15 @@ import com.studygroup.studygroup.utilities.SystemUtilities;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ListarCarreras extends ListFragment {
+public class ListarBuscarGrupo extends ListFragment {
 
     private BroadcastReceiver br = null;
-    private final String URL_GET = Direcciones.UrlConsultarRamos;
+    private final String URL_GET = "http://mongostudygroup-app4tbd.rhcloud.com/servicios/usuarios/ramos_a_elegir/";
 
 
-    public ListarCarreras() {
+    public ListarBuscarGrupo() {
         // Required empty public constructor
     }
-
-
     /**
      * Método que se llama una vez que se ha creado la actividad que contiene al fragmento
      */
@@ -41,6 +37,14 @@ public class ListarCarreras extends ListFragment {
     public void onActivityCreated(Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
     }// onActivityCreated(Bundle savedInstanceState)
+
+    /**
+     * Método que escucha las pulsaciones en los items de la lista
+     */
+    @Override
+    public void onListItemClick(ListView l, View v, int position, long id) {
+
+    }// onListItemClick(ListView l, View v, int position, long id)
 
     /**
      * Método que se ejecuta luego que el fragmento es creado o restaurado
@@ -52,7 +56,7 @@ public class ListarCarreras extends ListFragment {
             @Override
             public void onReceive(Context context, Intent intent) {
                 JsonHandler jh = new JsonHandler();
-                String[] actorsList = jh.getCarreras(intent.getStringExtra("data"));
+                String[] actorsList = jh.getRamos(intent.getStringExtra("data"));
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity()
                         , android.R.layout.simple_list_item_1, actorsList);
                 setListAdapter(adapter);
@@ -62,7 +66,8 @@ public class ListarCarreras extends ListFragment {
         SystemUtilities su = new SystemUtilities(getActivity().getApplicationContext());
         try {
             if (su.isNetworkAvailable()) {
-                new HttpGet(getActivity().getApplicationContext()).execute(URL_GET);
+                String a =((Usuario)getActivity().getApplicationContext()).getUsuarioId();
+                new HttpGet(getActivity().getApplicationContext()).execute(URL_GET+a);
             }
         }
         catch(Exception e){throw new RuntimeException(e);}
