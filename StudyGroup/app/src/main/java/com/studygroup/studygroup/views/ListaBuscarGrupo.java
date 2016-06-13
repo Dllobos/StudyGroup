@@ -1,20 +1,23 @@
 package com.studygroup.studygroup.views;
 
 
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.ListFragment;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.ListFragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
-import com.studygroup.studygroup.Direcciones;
 import com.studygroup.studygroup.MainActivity;
+import com.studygroup.studygroup.MapsActivity;
 import com.studygroup.studygroup.R;
 import com.studygroup.studygroup.Usuario;
 import com.studygroup.studygroup.controllers.HttpGet;
@@ -22,10 +25,9 @@ import com.studygroup.studygroup.utilities.JsonHandler;
 import com.studygroup.studygroup.utilities.SystemUtilities;
 
 /**
- * @author: Jefferson Morales De la Parra
- * Clase Fragmento (Lista) que se utiliza para mostrar una lista de items
+ * A simple {@link Fragment} subclass.
  */
-public class ItemList extends ListFragment {
+public class ListaBuscarGrupo extends ListFragment {
 
     private BroadcastReceiver br = null;
 
@@ -33,11 +35,10 @@ public class ItemList extends ListFragment {
 
 
 
-    /**
-     * Constructor. Obligatorio para Fragmentos!
-     */
-    public ItemList() {
-    }// ItemList()
+    public ListaBuscarGrupo() {
+        // Required empty public constructor
+    }
+
 
     /**
      * Método que se llama una vez que se ha creado la actividad que contiene al fragmento
@@ -53,16 +54,8 @@ public class ItemList extends ListFragment {
      */
     @Override
     public void onListItemClick(ListView l, View v, int position, long id) {
-        String item = l.getItemAtPosition(position).toString();
-        Fragment itemDetail = new ItemDetail();
-        Bundle arguments = new Bundle();
-        arguments.putString("item", item);
-        itemDetail.setArguments(arguments);
-        FragmentTransaction transaction;
-        transaction = getFragmentManager().beginTransaction();
-        transaction.replace(R.id.fragment_container, itemDetail);
-        transaction.addToBackStack(null);
-        transaction.commit();
+        Intent principal = new Intent(getActivity().getApplicationContext(),MapsActivity.class);
+        startActivity(principal);
     }// onListItemClick(ListView l, View v, int position, long id)
 
     /**
@@ -89,7 +82,7 @@ public class ItemList extends ListFragment {
                 new HttpGet(getActivity().getApplicationContext()).execute(URL_GET+a);
             }
         }
-            catch(Exception e){throw new RuntimeException(e);}
+        catch(Exception e){throw new RuntimeException(e);}
         super.onResume();
     }// onResume()
     /**
@@ -103,4 +96,5 @@ public class ItemList extends ListFragment {
         super.onPause();
     }// onPause()
 
-}// ItemList extends ListFragment
+
+}

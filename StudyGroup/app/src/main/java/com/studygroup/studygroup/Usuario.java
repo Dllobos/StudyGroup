@@ -17,8 +17,10 @@ public class Usuario extends Application{
             mail,
             numeroMovil,
             pass,
-            carrera,
+            carreraId,
             nombreCarrera,
+            ramoId,
+            nombreRamo,
             grupoTemporals,
             verificadores;
 
@@ -65,11 +67,11 @@ public class Usuario extends Application{
     public void setPass(String pass){
         this.pass=pass;
     }
-    public String getCarrera(){
-        return carrera;
+    public String getCarreraId(){
+        return carreraId;
     }
-    public void setCarrera(String carrera){
-        this.carrera=carrera;
+    public void setCarreraId(String carreraId){
+        this.carreraId=carreraId;
     }
     public String getNombreCarrera(){
         return nombreCarrera;
@@ -88,5 +90,17 @@ public class Usuario extends Application{
     }
     public void setVerificadores(String verificadores){
         this.verificadores=verificadores;
+    }
+    public void setRamoId(String ramoId){
+        this.ramoId=ramoId;
+    }
+    public String getRamoId(){
+        return ramoId;
+    }
+    public String getNombreRamo(){
+        return nombreRamo;
+    }
+    public void setNombreRamo(String nombreRamo){
+        this.nombreRamo=nombreRamo;
     }
 }

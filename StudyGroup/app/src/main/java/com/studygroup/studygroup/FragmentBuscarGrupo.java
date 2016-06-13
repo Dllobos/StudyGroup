@@ -8,9 +8,13 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.studygroup.studygroup.views.ItemList;
+import com.studygroup.studygroup.views.ListaBuscarGrupo;
 
 
 /**
@@ -32,15 +36,12 @@ public class FragmentBuscarGrupo extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
-        //View view =inflater.inflate(R.layout.fragment_fragment_buscar_grupo, container, false);
-        //boton =(Button)View.findViewById(R.id.boton)
-        //return View;
-
-        //activity = getActivity();
-        // Toast.makeText(activity,"Texto",Toast.LENGH_SHORT).show(); //para mostrar un toast
-
-        return inflater.inflate(R.layout.fragment_fragment_buscar_grupo, container, false);
+        View view = inflater.inflate(R.layout.fragment_fragment_buscar_grupo, container, false);
+        FragmentTransaction transaction;
+        transaction = getFragmentManager().beginTransaction();
+        transaction.replace(R.id.fragment_container, new ListaBuscarGrupo());
+        transaction.commit();
+        return view;
     }
 
     // TODO: Rename method, update argument and hook method into UI event
