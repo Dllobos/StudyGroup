@@ -19,6 +19,8 @@ public class Usuario extends Application{
             pass,
             carrera,
             nombreCarrera,
+            ramo,
+            nombreRamo,
             grupoTemporals,
             verificadores;
 
@@ -88,5 +90,17 @@ public class Usuario extends Application{
     }
     public void setVerificadores(String verificadores){
         this.verificadores=verificadores;
+    }
+    public String getRamo(){
+        return ramo;
+    }
+    public void setRamo(String ramo){
+        this.ramo=ramo;
+    }
+    public String getNombreRamo(){
+        return nombreRamo;
+    }
+    public void setNombreRamo(String nombreRamo){
+        this.nombreRamo=nombreRamo;
     }
 }
