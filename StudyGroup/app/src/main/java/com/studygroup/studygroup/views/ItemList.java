@@ -28,9 +28,7 @@ import com.studygroup.studygroup.utilities.SystemUtilities;
 public class ItemList extends ListFragment {
 
     private BroadcastReceiver br = null;
-
-    private final String URL_GET = "http://mongostudygroup-app4tbd.rhcloud.com/servicios/usuarios/ramos_a_elegir/";
-
+    private final String URL_GET = Direcciones.UrlConsultarRamos;
 
 
     /**
@@ -44,7 +42,6 @@ public class ItemList extends ListFragment {
      */
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
-
         super.onActivityCreated(savedInstanceState);
     }// onActivityCreated(Bundle savedInstanceState)
 
@@ -85,8 +82,7 @@ public class ItemList extends ListFragment {
         SystemUtilities su = new SystemUtilities(getActivity().getApplicationContext());
         try {
             if (su.isNetworkAvailable()) {
-                String a =((Usuario)getActivity().getApplicationContext()).getUsuarioId();
-                new HttpGet(getActivity().getApplicationContext()).execute(URL_GET+a);
+                new HttpGet(getActivity().getApplicationContext()).execute(URL_GET);
             }
         }
             catch(Exception e){throw new RuntimeException(e);}

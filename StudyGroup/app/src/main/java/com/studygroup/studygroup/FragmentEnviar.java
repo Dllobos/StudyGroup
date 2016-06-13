@@ -24,7 +24,6 @@ public class FragmentEnviar extends Fragment {
 
     private OnFragmentInteractionListener mListener;
 
-
     public FragmentEnviar() {
         // Required empty public constructor
     }
