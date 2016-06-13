@@ -28,9 +28,9 @@ import com.studygroup.studygroup.utilities.SystemUtilities;
 public class ItemList extends ListFragment {
 
     private BroadcastReceiver br = null;
-    private final String URL_GET = "http://mongostudygroup-app4tbd.rhcloud.com/servicios/usuarios/ramos_a_elegir/";
+    //private final String URL_GET = "http://mongostudygroup-app4tbd.rhcloud.com/servicios/usuarios/ramos_a_elegir/";
     //private final String URL_GET = "http://mongostudygroup-app4tbd.rhcloud.com/servicios/gestion_relacion_usuarios/";
-
+    private final String URL_GET ="http://mongostudygroup-app4tbd.rhcloud.com/servicios/gestion_relacion_usuarios/encuentros_previos/13";
     /**
      * Constructor. Obligatorio para Fragmentos!
      */
@@ -72,7 +72,7 @@ public class ItemList extends ListFragment {
             @Override
             public void onReceive(Context context, Intent intent) {
                 JsonHandler jh = new JsonHandler();
-                String[] actorsList = jh.getRamos(intent.getStringExtra("data"));
+                String[] actorsList = jh.getPrevios(intent.getStringExtra("data"));
                 ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity()
                         , android.R.layout.simple_list_item_1, actorsList);
                 setListAdapter(adapter);
@@ -83,7 +83,7 @@ public class ItemList extends ListFragment {
         try {
             if (su.isNetworkAvailable()) {
                 String a =((Usuario)getActivity().getApplicationContext()).getUsuarioId();
-                new HttpGet(getActivity().getApplicationContext()).execute(URL_GET+a);
+                new HttpGet(getActivity().getApplicationContext()).execute(URL_GET);
             }
         }
             catch(Exception e){throw new RuntimeException(e);}
