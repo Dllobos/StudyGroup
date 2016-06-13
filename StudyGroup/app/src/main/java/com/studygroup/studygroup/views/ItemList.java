@@ -30,7 +30,7 @@ public class ItemList extends ListFragment {
     private BroadcastReceiver br = null;
     private final String URL_GET = "http://mongostudygroup-app4tbd.rhcloud.com/servicios/usuarios/ramos_a_elegir/";
     //private final String URL_GET = "http://mongostudygroup-app4tbd.rhcloud.com/servicios/gestion_relacion_usuarios/";
-
+    //private final String URL_GET ="http://mongostudygroup-app4tbd.rhcloud.com/servicios/gestion_relacion_usuarios/encuentros_previos/13";
     /**
      * Constructor. Obligatorio para Fragmentos!
      */
